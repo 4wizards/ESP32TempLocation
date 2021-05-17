@@ -1,13 +1,24 @@
+#include "Includes.h"
 
+//Main file
 
-void setup() {
-  // put your setup code here, to run once:
-Serial.begin(115200);
+void setup() 
+{
+    // put your setup code here, to run once:
+    Serial.begin(115200);
+    delay(500);
+    WiFiConnectionInit();
+    dhtSensor.begin();
 
 }
 
-void loop() {
-  Serial.println(WIFI_HOTSPOTNAME);
-  // put your main code here, to run repeatedly:
-
+void loop() 
+{
+  while(WiFi.status() == WL_CONNECTED)
+  {
+    Serial.println(".");
+    delay(1000);
+    
+  }
+  
 }
