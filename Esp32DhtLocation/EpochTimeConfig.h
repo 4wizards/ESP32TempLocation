@@ -1,4 +1,7 @@
+
 #include "time.h"
+// Variable to save current epoch time
+unsigned long epochTime; 
 
 void EpochTimeInit()
 {
@@ -15,4 +18,5 @@ void EpochTimeInit()
         break;
       }
     }
+    Serial.printf("Epochtime Initialized. Current Time %lu", epochTime);
 }
