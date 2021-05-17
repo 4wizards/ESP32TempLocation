@@ -14,7 +14,7 @@ void setup()
     delay(500);
     WiFiConnectionInit();// This Section should be started before other functions, Without WiFi nothing will work....
     dht.begin();
-    gpsInit()
+    gpsInit();
 
 }
 
