@@ -6,7 +6,7 @@ String mcuType = "esp32";
 
 String sensorType = "dht11";
 
-String locationName = "Toaletten på espresso house";
+//String locationName = "Toaletten på espresso house";
 
 
 

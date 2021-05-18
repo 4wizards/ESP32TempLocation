@@ -16,10 +16,11 @@ String parseDataToJson()
 
 
   JsonObject locationData = package.createNestedObject("location");
-  locationData["locationName"]  = locationName;
+  locationData["locationName"]  = String(latitude)+":"+ String(longitude);
   locationData["latitude"]      = String(latitude);
   locationData["longitude"]     = String(longitude);
-
+  //char result[8]; // 
+  //dtostrf(resistance, 6, 2, result); //6an e hela siffron och 2an antal decimal
 
   JsonObject measurementData = package.createNestedObject("measurement");
 
