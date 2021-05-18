@@ -1,22 +1,39 @@
 
+// Time Lib
 #include "time.h"
+
 // Variable to save current epoch time
-unsigned long epochTime; 
+unsigned long epochTime;
 
-void EpochTimeInit()
+void initializeCurrentlLocationTime()
 {
-  configTime(3600, 0, "pool.ntp.org", "time.nist.gov");
-  while (true)
-    {
-      epochTime = time(NULL);
 
-      if (epochTime == 28800) {
-        delay(2000);
-      }
-      else
-      {
-        break;
-      }
-    }
-    Serial.printf("Epochtime Initialized. Current Time %lu", epochTime);
+  // NTP server to request epoch time
+  const char *ntpServer = "pool.ntp.org";
+  // Fetch Local Time API
+  const char *timeApiUrl = "http://worldtimeapi.org/api/ip";
+  HTTPClient httpSocketClient;
+
+  httpSocketClient.begin(timeApiUrl);
+
+  int httpCode = httpSocketClient.GET();
+
+  if (httpCode != 200)
+  {
+    printf("API Probs ? \r\n");
+    configTime(0, 0, ntpServer);
+    return;
+  }
+  String response = httpSocketClient.getString();
+  long offset = response.substring(response.indexOf("\"raw_offset\":") + 13, response.indexOf(",\"timezone\":")).toFloat();
+  httpSocketClient.end();
+
+  configTime(offset, 0, ntpServer);
+  
 }
+
+void refreshEpochTime()
+{
+  epochTime = time(NULL);
+}
+

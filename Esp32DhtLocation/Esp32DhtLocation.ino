@@ -1,20 +1,18 @@
-#include "config.h"
-#include "WiFiConnectionConfig.h"
-#include "HTTPPostConfig.h"
-#include "DHTConfig.h"
-#include "GoogleMapsApi.h"
-#include "EpochTimeConfig.h"
+#include "includes.h"
 
-//Main file
+//Main file 
 
 void setup() 
 {
-    // put your setup code here, to run once:
     Serial.begin(115200);
-    delay(500);
+    delay(100);
     WiFiConnectionInit();// This Section should be started before other functions, Without WiFi nothing will work....
+    delay(100);
     dht.begin();
-    gpsInit();
+    delay(100);
+    locationInit();
+    delay(100);
+    initializeCurrentlLocationTime();
 
 }
 
@@ -22,8 +20,11 @@ void loop()
 {
   while(WiFi.status() == WL_CONNECTED)
   {
-    Serial.println(".");
-    delay(1000);
+    checkSensorDataCelcius();
+    if (currentTemp > (previousTemp + tempDiff) || currentTemp < (previousTemp - tempDiff))
+    {
+      
+    }
     
   }
   

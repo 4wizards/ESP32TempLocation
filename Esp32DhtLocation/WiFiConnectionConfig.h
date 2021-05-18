@@ -1,15 +1,7 @@
 
-#include "HTTPClient.h"
+// WiFi Lib
+#include <WifiLocation.h>
 #include <WiFi.h>
-#include <Arduino_JSON.h>
-
-
-// Wifi Hotspot connection settings and functions
-//Here we create the login credentials for the wifi connection
-
-const char *SSID = "WIFI_SSID";
-const char *PWD = "WIFI_PASSWORD";
-
 void WiFiConnectionInit()
 {
   WiFi.begin(SSID, PWD);
