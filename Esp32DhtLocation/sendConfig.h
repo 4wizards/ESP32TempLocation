@@ -47,6 +47,7 @@ bool sendFunction(String jsonPackage)
 
   // Send request
   http.begin(serverName);
+  http.addHeader("Content-Type", "application/json");
   int httpResponse = http.POST(jsonPackage);
   
   if(!http.POST(jsonPackage))

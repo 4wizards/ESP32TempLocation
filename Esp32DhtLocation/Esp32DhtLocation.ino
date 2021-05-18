@@ -1,17 +1,20 @@
 
+#include "includes.h"
 
 void setup() {
-  // put your setup code here, to run once:
-Serial.begin(115200);
+ 
+  Serial.begin(115200);
+  delay(100);
+  WiFiConnectionInit();// This Section should be started before other functions, Without WiFi nothing will work....
+  delay(100);
+  dht.begin();
+  delay(100);
+  locationInit();
+  delay(100);
+  initializeCurrentlLocationTime();
 
 }
 
-<<<<<<< Updated upstream
-void loop() {
-  Serial.println(WIFI_HOTSPOTNAME);
-  // put your main code here, to run repeatedly:
-
-=======
 void loop() 
 {
   while(WiFi.status() == WL_CONNECTED)
@@ -27,5 +30,4 @@ void loop()
     delay(1000*10);
   }
   
->>>>>>> Stashed changes
 }

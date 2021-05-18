@@ -1,6 +1,6 @@
 
 
-String deviceName = "JokosKokos";/*  "<-->" Please insert the name between the dubble fnutts that you want to give your device */
+String deviceName = "VinniesLemonadas";/*  "<-->" Please insert the name between the dubble fnutts that you want to give your device */
 
 String mcuType = "esp32";
 
