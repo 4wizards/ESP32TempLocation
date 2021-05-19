@@ -66,9 +66,9 @@ void newLocationApiGet(String myIp)
         return;
       }
       else {
-        longitude = doc["location"]["lng"];
-        latitude = doc["location"]["lat"];
-        locationName = doc["location"]["city"].as<String>();
+        longitude = doc["longitude"];
+        latitude = doc["latitude"];
+        locationName = doc["city"].as<String>();
         printf("from new api : Long  - %.3f, Lat - %.3f\n\n", longitude, latitude);
         http.end();
         return;
