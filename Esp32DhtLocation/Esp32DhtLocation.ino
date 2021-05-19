@@ -7,9 +7,9 @@ void setup() {
   delay(100);
   WiFiConnectionInit();// This Section should be started before other functions, Without WiFi nothing will work....
   dht.begin();
+  newLocationApiGet(getMyPublicIP());
   initializeCurrentlLocationTime();
   refreshEpochTime();
-  locationInit();
   delay(100);
   
 }
@@ -20,11 +20,13 @@ void loop()
   {
     refreshEpochTime();
     checkSensorDataCelcius();
+    
     //if (currentTemp > (previousTemp + tempDiff) || currentTemp < (previousTemp - tempDiff))
     //{
+        if(epochTime> 1600000000){
         sendFunction(parseDataToJson());
         serialPrintDataSets(); // Uncomment if serial check is necessary
-
+        }
     //}
     delay(SLEEPTIME);
   }

@@ -5,7 +5,7 @@
 String parseDataToJson()
 {
   
-  DynamicJsonDocument package(2048);
+  DynamicJsonDocument package(125);
 
     // Prepare JSON document with correct array structure
   JsonObject deviceData = package.createNestedObject("device");
