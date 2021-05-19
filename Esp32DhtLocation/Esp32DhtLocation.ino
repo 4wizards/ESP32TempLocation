@@ -27,7 +27,7 @@ void loop()
         serialPrintDataSets(); // Uncomment if serial check is necessary
 
     //}
-    delay(1000*10);
+    delay(SLEEPTIME);
   }
   
 }
