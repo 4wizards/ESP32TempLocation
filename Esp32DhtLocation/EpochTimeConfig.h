@@ -12,6 +12,7 @@ void initializeCurrentlLocationTime()
   const char *ntpServer = "pool.ntp.org";
   // Fetch Local Time API
   const char *timeApiUrl = "http://worldtimeapi.org/api/ip";
+  const char *timeNistUrl = "time.nist.gov";
   HTTPClient httpSocketClient;
 
   httpSocketClient.begin(timeApiUrl);
@@ -21,7 +22,7 @@ void initializeCurrentlLocationTime()
   if (httpCode != 200)
   {
     printf("EPOCH API Probs ? \r\n");
-    configTime(0, 0, ntpServer);
+    configTime(0, 0, ntpServer,timeNistUrl);
     return;
   }
   String response = httpSocketClient.getString();
