@@ -39,9 +39,7 @@ void initializeCurrentlLocationTime()
     {
       break;
     }
-
   }
-
 }
 
 void refreshEpochTime()

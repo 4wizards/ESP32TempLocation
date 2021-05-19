@@ -20,8 +20,9 @@ void serialPrintDataSets()
       Serial.println("-----------------------------\n");
       Serial.println("Device Stuff");
       Serial.print("Device Id : ");         Serial.println(deviceName);
+      Serial.print("Location Name : ");     Serial.println(locationName);
 
-      Serial.println("-----------------------------\n");
+      Serial.println("------------Measurements-------------\n");
       
       Serial.println("New Data ::");
       Serial.print("Temperature : ");       Serial.println(currentTemp);

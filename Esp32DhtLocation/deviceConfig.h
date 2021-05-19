@@ -8,8 +8,6 @@ String sensorType = "dht11";
 
 
 
-//String locationName = "Toaletten på espresso house";
-
 
 
 // Wifi Hotspot connection settings and functions
@@ -18,5 +16,3 @@ String sensorType = "dht11";
 //   - For personal Wifi - 
 //const char *SSID = "Gurka";/*  "<-->" Please insert the name of your wifi between the dubble fnutts */
 //const char *PWD = "gintonic";/*  "<-->" Please insert the password of your wifi between the dubble fnutts */
-
-

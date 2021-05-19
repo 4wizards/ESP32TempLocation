@@ -5,7 +5,7 @@
 String parseDataToJson()
 {
   
-  DynamicJsonDocument package(125);
+  DynamicJsonDocument package(256);
 
     // Prepare JSON document with correct array structure
   JsonObject deviceData = package.createNestedObject("device");
@@ -16,7 +16,7 @@ String parseDataToJson()
 
 
   JsonObject locationData = package.createNestedObject("location");
-  locationData["locationName"]  = String(latitude)+":"+ String(longitude);
+  locationData["locationName"]  = locationName;
   locationData["latitude"]      = String(latitude);
   locationData["longitude"]     = String(longitude);
   //char result[8]; // 

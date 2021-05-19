@@ -1,26 +1,10 @@
-#include "WifiLocation.h"
+
 #include "ArduinoJson.h"
 //GPS Coordinates in globaly reachable variables
 float latitude = 0.0;
 float longitude = 0.0;
+String locationName;
 
-void locationInit()
-{
-  WifiLocation location(SECRET_GOOGLEAPI);
-
-  location_t loc = location.getGeoFromWiFi();
-  latitude = float(loc.lat);
-  longitude = float(loc.lon);
-
-  //Serial Monitor print-outs
-
-  Serial.println("Location request data");
-  Serial.println(location.getSurroundingWiFiJson());
-  Serial.println("Latitude: " + String(loc.lat, 7));
-  Serial.println("Longitude: " + String(loc.lon, 7));
-  Serial.println("Accuracy: " + String(loc.accuracy));
-
-}
 
 String getMyPublicIP()
 {
@@ -84,6 +68,7 @@ void newLocationApiGet(String myIp)
       else {
         longitude = doc["location"]["lng"];
         latitude = doc["location"]["lat"];
+        locationName = doc["location"]["city"].as<String>();
         printf("from new api : Long  - %.3f, Lat - %.3f\n\n", longitude, latitude);
         http.end();
         return;
