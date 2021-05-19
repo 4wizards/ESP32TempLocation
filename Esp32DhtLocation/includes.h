@@ -22,9 +22,8 @@ void serialPrintDataSets()
       Serial.print("Device Id : ");         Serial.println(deviceName);
 
       Serial.println("-----------------------------\n");
-      Serial.println("-----------------------------\n");
       
-      Serial.println("\nNew Data ::");
+      Serial.println("New Data ::");
       Serial.print("Temperature : ");       Serial.println(currentTemp);
       Serial.print("Humidity : ");          Serial.println(humi);
       Serial.print("Feels like : ");        Serial.println(heatIndexCelcius);

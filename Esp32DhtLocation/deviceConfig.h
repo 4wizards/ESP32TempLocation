@@ -16,7 +16,7 @@ String sensorType = "dht11";
 //Here we create the login credentials for the wifi connection
 
 //   - For personal Wifi - 
-const char *SSID = "Gurka";/*  "<-->" Please insert the name of your wifi between the dubble fnutts */
-const char *PWD = "gintonic";/*  "<-->" Please insert the password of your wifi between the dubble fnutts */
+//const char *SSID = "Gurka";/*  "<-->" Please insert the name of your wifi between the dubble fnutts */
+//const char *PWD = "gintonic";/*  "<-->" Please insert the password of your wifi between the dubble fnutts */
 
 

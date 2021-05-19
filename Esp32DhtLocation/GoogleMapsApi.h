@@ -2,7 +2,6 @@
 //GPS Coordinates in globaly reachable variables
 float latitude = 0.0;
 float longitude = 0.0;
-double accuracy = 0.0;
 
 WifiLocation location(GOOGLE_MAPS_API);
 

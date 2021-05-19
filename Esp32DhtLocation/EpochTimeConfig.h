@@ -20,7 +20,7 @@ void initializeCurrentlLocationTime()
 
   if (httpCode != 200)
   {
-    printf("API Probs ? \r\n");
+    printf("EPOCH API Probs ? \r\n");
     configTime(0, 0, ntpServer);
     return;
   }
