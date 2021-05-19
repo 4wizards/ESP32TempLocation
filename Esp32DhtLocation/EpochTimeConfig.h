@@ -21,7 +21,7 @@ void initializeCurrentlLocationTime()
 
   if (httpCode != 200)
   {
-    printf("EPOCH API Probs ? \r\n");
+    printf("getting epoch ? \r\n");
     configTime(0, 0, ntpServer,timeNistUrl);
     return;
   }
@@ -37,4 +37,3 @@ void refreshEpochTime()
 {
   epochTime = time(NULL);
 }
-

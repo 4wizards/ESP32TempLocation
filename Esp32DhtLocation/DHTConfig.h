@@ -1,7 +1,7 @@
 // Sensor Lib
-#include <Adafruit_Sensor.h>
-#include <DHT.h>
-#include <DHT_U.h>
+#include "Adafruit_Sensor.h"
+#include "DHT.h"
+#include "DHT_U.h"
 
 #define DHTPIN 22      // Wont interfere with WiFi connectivity
 #define DHTTYPE DHT11  // Just the booring old DHT11
