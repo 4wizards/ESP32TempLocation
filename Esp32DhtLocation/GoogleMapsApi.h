@@ -9,34 +9,35 @@ String locationName;
 String getMyPublicIP()
 {
   HTTPClient http;
-  http.begin("http://api.ipify.org/?format=json");
-  int httpCode = http.GET();
+  while (true) {
+    http.begin("http://api.ipify.org/?format=json");
+    int httpCode = http.GET();
 
-  if (httpCode > 0)
-  { //Check for the returning code
-    DynamicJsonDocument doc(ESP.getMaxAllocHeap());
-    String payload = http.getString();
-    Serial.println(httpCode);
-    Serial.println(payload);
+    if (httpCode > 0)
+    { //Check for the returning code
+      DynamicJsonDocument doc(ESP.getMaxAllocHeap());
+      String payload = http.getString();
+      Serial.println(httpCode);
+      Serial.println(payload);
 
-    
-    DeserializationError error = deserializeJson(doc, payload);
-    
-    if (error) 
-    {
-      Serial.print(F("deserializeJson() failed: "));
-      Serial.println(error.f_str());
-      http.end();
-      
-    }
-    else 
-    {
-      String ip = doc["ip"];
-      http.end();
-      return ip;
+      DeserializationError error = deserializeJson(doc, payload);
+
+      if (error)
+      {
+        Serial.print(F("deserializeJson() failed: "));
+        Serial.println(error.f_str());
+        http.end();
+        return "00.00.00.00";
+      }
+      else
+      {
+        String ip = doc["ip"];
+        http.end();
+        return ip;
+      }
     }
   }
- return "00.00.00.00";
+  return "00.00.00.00";
 }
 
 
@@ -46,7 +47,7 @@ void newLocationApiGet(String myIp)
   while (true)
   {
     // Send request
-    http.begin(IP_GEO_CONNECT+myIp);
+    http.begin(IP_GEO_CONNECT + myIp);
     delay(100);
     int httpCode = http.GET();
 
